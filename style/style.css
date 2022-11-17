@@ -2,7 +2,6 @@ body {
     font-family: Poppins, sans-serif;
 }
 
-#img1 {
-    background-size: contain;
+tr, td, th {
+    border: 1px solid black;
 }
-

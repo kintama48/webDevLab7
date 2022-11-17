@@ -32,4 +32,26 @@ $(document).ready(() => {
             $('#box3').css('border-radius', '0px');
         }
     })
+
+    $('#addBtn').click(()=> {
+        $('#table1 tr').last().after('<tr><td></td><td></td><td></td><td></td></tr>');
+    })
+
+    $('#searchBtn').click(() => {
+        let search1 = "BSCS";
+        let search2 = "MSCS";
+        $('#table1 tr').each((index, element) => {
+            if (index !== 0) {
+                $(element).children().each((index, element) => {
+                    if ($(element).html() === search1) {
+                        $(element).css('background-color', 'teal');
+                    }
+                    if ($(element).html() === search2) {
+                        $(element).css('background-color', 'salmon');
+                    }
+                })
+            }
+        })
+    })
+
 });
