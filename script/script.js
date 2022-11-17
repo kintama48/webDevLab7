@@ -1,27 +1,35 @@
-// Task 2
-changeBg = (box) => {
-    if (box === "box1") {
-        document.getElementById('img1').style.backgroundImage = "url('./assets/1.jpeg')";
-        document.getElementById(box).style.cursor = "pointer";
-    } else if (box === "box2") {
-        document.getElementById('img1').style.backgroundImage = "url('./assets/2.jpeg')";
-        document.getElementById(box).style.cursor = "pointer";
-    } else if (box === "box3") {
-        document.getElementById('img1').style.backgroundImage = "url('./assets/3.png')";
-        document.getElementById(box).style.cursor = "pointer";
-    } else {
-        document.getElementById('img1').style.backgroundImage = "none";
-    }
-}
+// Task 1
+$(document).ready(() => {
+    $("#changeBtn").click(() => {
+        let color = $("#colorInput").val();
+        $('#sentence2').html(`I never saw a <b>${color}</b> Cow, I never hope to see one; But I can tell you, anyhow, I'd rather see than be one.`);
+        $('#sentence1').html(`<b>${color}</b> Cow by Gelett Burgess (Published 1895)`);
+    })
 
-// Task 3
-isPrime = (n) => {
-    for(let i = 2; i < n; i++)
-        if(n % i === 0) return false;
-    return n > 1;
-}
+    $('#toggleColors').click(() => {
+        let bg = $('#box1').css('background-color');
+        if (bg === 'rgba(0, 0, 0, 0)') {
+            let color = '#'+(Math.random().toString(16)+'00000').slice(2,8);
+            $('#box1').css('background-color', color);
+            $('#box2').css('background-color', color);
+            $('#box3').css('background-color', color);
+        } else {
+            $('#box1').css('background-color', 'rgba(0, 0, 0, 0)');
+            $('#box2').css('background-color', 'rgba(0, 0, 0, 0)');
+            $('#box3').css('background-color', 'rgba(0, 0, 0, 0)');
+        }
+    })
 
-// Task 4
-isLeapYear = (year) => {
-    return new Date(year, 1, 29).getDate() === 29;
-}
+    $('#toggleBorders').click(()=> {
+        let bg = $('#box1').css('border-radius');
+        if (bg === '0px') {
+            $('#box1').css('border-radius', '10px');
+            $('#box2').css('border-radius', '10px');
+            $('#box3').css('border-radius', '10px');
+        } else {
+            $('#box1').css('border-radius', '0px');
+            $('#box2').css('border-radius', '0px');
+            $('#box3').css('border-radius', '0px');
+        }
+    })
+});
