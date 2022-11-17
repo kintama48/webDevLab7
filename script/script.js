@@ -54,4 +54,17 @@ $(document).ready(() => {
         })
     })
 
+    $('#box4').mouseover(() => {
+        $('#box4').css('background-color', 'red');
+    });
+
+    $('#box4').mouseleave(() => {
+        $('#box4').css('background-color', 'rgba(0,0,0,0)');
+    });
+
+    $('#box4').click(() => {
+        let elem = $('#box4');
+        elem.css('border', '0px');
+        elem.css('background-color', 'rgba(0,0,0,0)');
+    })
 });
